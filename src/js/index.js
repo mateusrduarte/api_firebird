@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { dbOptions } from "../config/database.js";
-import Firebird from "node-firebird";
+import { executeQuary } from "../config/database.js";
 
 const app = express();
 
@@ -12,25 +11,23 @@ app.use(cors());
 // Rotas
 app.get("/produtos", function(req, res){
 
-    Firebird.attach(dbOptions, function(err, db) {
+    let filtro = [];
+    let ssql = "SELECT * FROM TAB_PRODUTO WHERE ID_PRODUTO > 0 ";
 
-        if (err){
-            return res.status(500).json(err);
+    if (req.query.descricao){
+        ssql += "AND descricao LIKE ?";
+        filtro.push("%" + req.query.descricao + "%");
+    }
+
+
+    executeQuary(ssql, filtro, function(err, result){
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.status(200).json(result);
         }
-    
-        // db = DATABASE
-        db.query('SELECT * FROM TAB_PRODUTO', function(err, result) {
-            // IMPORTANT: close the connection
-            db.detach();
-
-            if (err){
-                return res.status(500).json(err);
-            } else {
-                return res.status(200).json(result);
-            }
-        });
-    
     });
+
 });
 
 app.listen(3000, function () {

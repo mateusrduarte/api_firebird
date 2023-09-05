@@ -1,4 +1,4 @@
-import firebird from "node-firebird";
+import Firebird from "node-firebird";
 
 const dbOptions = {
     host: '127.0.0.1',
@@ -11,4 +11,25 @@ const dbOptions = {
     pageSize: 4096,        // default when creating database
 };
 
-export {dbOptions};
+function executeQuary(ssql, params, callback) {
+    Firebird.attach(dbOptions, function(err, db) {
+
+        if (err){
+            return callback(err, []);
+        }
+       
+        db.query(ssql, params, function(err, result) {
+            
+            db.detach();
+
+            if (err){
+                return callback(err, []);
+            } else {
+                return callback(undefined, result);
+            }
+        });
+    
+    });
+}
+
+export {executeQuary};
