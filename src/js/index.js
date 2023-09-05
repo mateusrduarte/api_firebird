@@ -30,6 +30,19 @@ app.get("/produtos", function(req, res){
 
 });
 
+app.post("/produtos", function(req, res){
+
+    let ssql = "INSERT INTO TAB_PRODUTO(DESCRICAO, VALOR) VALUES(?, ?) RETURNING ID_PRODUTO";
+
+    executeQuary(ssql, [req.body.descricao, req.body.valor], function(err, result){
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.status(201).json({id_produto: result.ID_PRODUTO});
+        }
+    });
+});
+
 app.listen(3000, function () {
     console.log("Servidor no ar");
 });
