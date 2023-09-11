@@ -1,7 +1,3 @@
-## Bing
-
-Eu posso tentar gerar uma descrição de uma API que conecta diretamente com o banco de dados Firebird, permitindo consultar e inserir dados usando Node.JS. Aqui está um exemplo de como eu faria isso:
-
 # API-Firebird
 
 Firebird-Node é uma API simples e sofisticada para interagir com o banco de dados Firebird usando Node.JS. Ela permite executar consultas SQL, inserir, atualizar e deletar dados, gerenciar transações e muito mais.
