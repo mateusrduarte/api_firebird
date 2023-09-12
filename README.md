@@ -1,19 +1,19 @@
 # API-Firebird
 
-Firebird-Node é uma API simples e sofisticada para interagir com o banco de dados Firebird usando Node.JS. Ela permite executar consultas SQL, inserir, atualizar e deletar dados, gerenciar transações e muito mais.
+API-Firebird é uma API simples e sofisticada para interagir com o banco de dados Firebird usando Node.JS. Ela permite executar consultas SQL, inserir, atualizar e deletar dados, gerenciar transações e muito mais.
 
 ## Instalação
 
 Para instalar a API, você pode usar o comando npm:
 
 ```bash
-npm install firebird-node
+npm install API-Firebird
 ```
 
 Ou você pode clonar o repositório do GitHub:
 
 ```bash
-git clone https://github.com/firebird-node/firebird-node.git
+git clone https://github.com/API-Firebird/API-Firebird.git
 ```
 
 ## Uso
@@ -21,7 +21,7 @@ git clone https://github.com/firebird-node/firebird-node.git
 Para usar a API, você precisa importá-la no seu código:
 
 ```javascript
-const firebird = require('firebird-node');
+const firebird = require('API-Firebird');
 ```
 
 Em seguida, você precisa criar uma conexão com o banco de dados, fornecendo os parâmetros necessários:
@@ -90,9 +90,9 @@ Para mais informações sobre a API, consulte a documentação completa no [site
 
 ## Licença
 
-Firebird-Node é licenciado sob a [licença MIT].
+API-Firebird é licenciado sob a [licença MIT].
 
 Espero que isso seja útil para você. Se você quiser que eu gere mais conteúdo para você, basta me perguntar. 😊
 
-: https://firebird-node.github.io/
-: https://github.com/firebird-node/firebird-node/blob/master/LICENSE
+: https://API-Firebird.github.io/
+: https://github.com/API-Firebird/API-Firebird/blob/master/LICENSE
